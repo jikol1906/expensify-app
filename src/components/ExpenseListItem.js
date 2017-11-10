@@ -1,6 +1,4 @@
 import React from 'react';
-import { removeExpense } from "../actions/expenses";
-import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 import numeral from 'numeral';
