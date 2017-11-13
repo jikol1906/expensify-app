@@ -1,6 +1,7 @@
 import expensesReducer from '../../reducers/expenses';
 import expenses from '../fixtures/expenses';
 import moment from 'moment';
+import {setExpenses} from "../../actions/expenses";
 
 test('should set default sate', () => {
     const state = expensesReducer(undefined, { type:'@@INIT' })
@@ -63,7 +64,6 @@ test('should edit an expense', () => {
 
 test('should not edit expense if not found', () => {
 
-    //Updating the second expense from fixtures
     const action = {
         type:'EDIT_EXPENSE',
         id: '5',
@@ -77,6 +77,37 @@ test('should not edit expense if not found', () => {
 
     expect(shouldNotExist).toBeFalsy();
     expect(state.length).toBe(3);
+
+
+});
+
+test('should set expenses', () => {
+
+
+    //This should be removed when we use set expenses
+    const addExpenseAction = {
+        type: 'ADD_EXPENSE',
+        expense: {
+            description:'Rent',
+            amount: 12,
+            createdAt: 2000,
+            note: 'a note'
+        }
+    };
+
+    const state = expensesReducer(expenses,addExpenseAction);
+
+
+    const setExpensesAction = {
+        type:'SET_EXPENSES',
+        expenses
+    };
+
+    const state2 = expensesReducer(state,setExpensesAction);
+
+    expect(state2).toEqual(expenses);
+
+
 
 
 });
