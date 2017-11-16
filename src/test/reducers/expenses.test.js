@@ -1,7 +1,5 @@
 import expensesReducer from '../../reducers/expenses';
 import expenses from '../fixtures/expenses';
-import moment from 'moment';
-import {setExpenses} from "../../actions/expenses";
 
 test('should set default sate', () => {
     const state = expensesReducer(undefined, { type:'@@INIT' })

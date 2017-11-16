@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import EditExpenseForm from './ExpenseForm';
 import { startEditExpense, startRemoveExpense } from "../actions/expenses";
+import Header from "./Header";
 
 export class EditExpensePage extends React.Component {
 
